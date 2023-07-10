@@ -1,0 +1,38 @@
+
+<div class="slider1">
+  <img src="https://w.forfun.com/fetch/2f/2f8f26f82124652460ec0dfb35610901.jpeg" alt="Изображение 1" class="slide1">
+  <img src="https://w.forfun.com/fetch/2f/2f8f26f82124652460ec0dfb35610901.jpeg" alt="Изображение 2" class="slide1">
+  <img src="https://w.forfun.com/fetch/2f/2f8f26f82124652460ec0dfb35610901.jpeg" alt="Изображение 3" class="slide1">
+</div>
+
+<style>
+  .slider1 {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+  .slide1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  .slide1:first-child {
+    opacity: 1;
+  }
+</style>
+<script>
+  let currentIndex1 = 0;
+  const slides2 = document.querySelectorAll('.slide1'); // нашли слайд
+  const slideInterval1 = 1000; // время слайда
+
+  function change() {
+    slides2[currentIndex1].style.opacity = 0; //slides2 > currentIndex1 (к 1-му слайду opacyty:0)
+    currentIndex1 = [currentIndex1 + 1] % slides2.length; //currentIndex1 = 1 (прибавляем 1 к оставшиемся слайдам)
+    slides2[currentIndex1].style.opacity = 1;//у оставшийся слайдов опасити = 1
+  }
+
+  setInterval(change, slideInterval1);
+</script>
